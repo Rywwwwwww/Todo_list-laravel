@@ -53,9 +53,6 @@
 	      </div>
 	   </form>
 
-	   <!-- 空白 --> 
-	   <div>　</div>
-	   
 	   <!-- 削除処理 -->
 	   <form action="{{ route('tasks.delete', ['id' => $task->folder_id, 'task_id' => $task->id] ) }}" method="post">
 	     <!-- deleteメソッド使用 -->
@@ -63,9 +60,8 @@
 	      @csrf
 	      <div class="text-right">
 		<!-- タスク削除ボタン -->
-		<button type="submit" class="btn btn-primary">タスク削除</button>
-			
-	      </div>
+                <button type="submit" class="btn btn-primary">タスク削除</button>
+	      </div> 
 	   </form>
           </div>
         </nav>

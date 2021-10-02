@@ -114,19 +114,27 @@ class TaskController extends Controller
 	}
 
 	//タスク削除処理
-	public function del(string $id, string $task_id)
+	public function del(int $id, int $task_id)
 	{
 
 		//削除処理
 		//Task::find($task_id->id)->delete();
-		Task::find($task_id)->delete();
+		Task::find($task_id->id)->delete();
+
+		//ddd($task);
 
 
 		//タスク一覧画面に移動
 		return redirect()->route('tasks.index', [
-			'id' => $id,
+			'task_id' => $id->folder_id,
 		]);
 
+		//デバック
+		/*
+		return response()->json([
+			'task_id' => $task
+		]);
+		 */
 	}
 
 }
