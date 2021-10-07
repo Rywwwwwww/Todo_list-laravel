@@ -7,9 +7,18 @@
         <nav class="panel panel-default">
           <div class="panel-heading">フォルダ</div>
           <div class="panel-body">
-            <a href="{{ route('folders.create') }}" class="btn btn-default btn-block">
-              フォルダを追加する
-            </a>
+            	<a href="{{ route('folders.create') }}" class="btn btn-default btn-block">
+              		フォルダを追加する
+		</a>
+		<!-- フォルダー削除処理 -->
+		<!-- $current_folder_id(id値)  TaskController@indexで宣言 -->
+		<!--
+		<form action="{{ route('folders.delete', ['id' => $current_folder_id] ) }}" method="post">
+			<input type="hidden" name="_method" value="delete">
+			@csrf	
+			<button type="submit" class="btn btn-default btn-block">フォルダを削除する</button>	
+		<form>
+		-->
           </div>
           <div class="list-group">
             @foreach($folders as $folder)

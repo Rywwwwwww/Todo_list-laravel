@@ -12,6 +12,8 @@ use App\Http\Requests\CreateFolder; // ★ 追加
 // ★ Authクラスをインポートする
 use Illuminate\Support\Facades\Auth;
 
+// DBクラス
+use Illuminate\Support\Facades\DB;
 
 class FolderController extends Controller
 {
@@ -40,5 +42,20 @@ class FolderController extends Controller
     		return redirect()->route('tasks.index', [
         		'id' => $folder->id,
     		]);
+	}
+
+	//フォルダ削除
+	public function del(string $id)
+	{
+		//フォルダー削除
+		Folder::find($id)->delete();
+
+		//フォルダー覧画面に移動
+		/*
+		return redirect()->route('tasks.index', [
+                	'id' => $id,
+		]);
+		 */
+		return redirect()->route('home');
 	}
 }

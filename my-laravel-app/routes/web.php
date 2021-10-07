@@ -16,6 +16,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
 	//フォルダー作成処理
 	Route::post('/folders/create', 'FolderController@create');
+	//フォルダー削除処理	
+	Route::delete('/folders/{id}/delete', 'FolderController@del')->name('folders.delete');
 
 	//==========タスク作成ページ=============
 	//タスク作成表示処理
